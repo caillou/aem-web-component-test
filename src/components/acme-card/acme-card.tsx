@@ -8,7 +8,7 @@ import { Component, Prop } from '@stencil/core';
 export class AcmeCard {
   @Prop() href: string;
   @Prop() heading: string;
-
+  @Prop() img: string;
 
   render() {
     return (
@@ -16,6 +16,9 @@ export class AcmeCard {
         <h1>
           {this.heading}
         </h1>
+        {this.img &&
+          <img src={this.img}></img>
+        }
         <div>
           <slot/>
         </div>

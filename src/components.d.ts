@@ -15,10 +15,12 @@ export namespace Components {
   interface AcmeCard {
     'heading': string;
     'href': string;
+    'img': string;
   }
   interface AcmeCardAttributes extends StencilHTMLAttributes {
     'heading'?: string;
     'href'?: string;
+    'img'?: string;
   }
 
   interface AcmeName {
