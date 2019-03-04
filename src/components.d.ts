@@ -12,6 +12,44 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface AcmeCard {
+    'heading': string;
+    'href': string;
+  }
+  interface AcmeCardAttributes extends StencilHTMLAttributes {
+    'heading'?: string;
+    'href'?: string;
+  }
+
+  interface AcmeName {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface AcmeNameAttributes extends StencilHTMLAttributes {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+
   interface AcmeTableData {}
   interface AcmeTableDataAttributes extends StencilHTMLAttributes {}
 
@@ -53,6 +91,8 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'AcmeCard': Components.AcmeCard;
+    'AcmeName': Components.AcmeName;
     'AcmeTableData': Components.AcmeTableData;
     'AcmeTableRow': Components.AcmeTableRow;
     'AcmeTable': Components.AcmeTable;
@@ -60,12 +100,26 @@ declare global {
   }
 
   interface StencilIntrinsicElements {
+    'acme-card': Components.AcmeCardAttributes;
+    'acme-name': Components.AcmeNameAttributes;
     'acme-table-data': Components.AcmeTableDataAttributes;
     'acme-table-row': Components.AcmeTableRowAttributes;
     'acme-table': Components.AcmeTableAttributes;
     'my-component': Components.MyComponentAttributes;
   }
 
+
+  interface HTMLAcmeCardElement extends Components.AcmeCard, HTMLStencilElement {}
+  var HTMLAcmeCardElement: {
+    prototype: HTMLAcmeCardElement;
+    new (): HTMLAcmeCardElement;
+  };
+
+  interface HTMLAcmeNameElement extends Components.AcmeName, HTMLStencilElement {}
+  var HTMLAcmeNameElement: {
+    prototype: HTMLAcmeNameElement;
+    new (): HTMLAcmeNameElement;
+  };
 
   interface HTMLAcmeTableDataElement extends Components.AcmeTableData, HTMLStencilElement {}
   var HTMLAcmeTableDataElement: {
@@ -92,6 +146,8 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'acme-card': HTMLAcmeCardElement
+    'acme-name': HTMLAcmeNameElement
     'acme-table-data': HTMLAcmeTableDataElement
     'acme-table-row': HTMLAcmeTableRowElement
     'acme-table': HTMLAcmeTableElement
@@ -99,6 +155,8 @@ declare global {
   }
 
   interface ElementTagNameMap {
+    'acme-card': HTMLAcmeCardElement;
+    'acme-name': HTMLAcmeNameElement;
     'acme-table-data': HTMLAcmeTableDataElement;
     'acme-table-row': HTMLAcmeTableRowElement;
     'acme-table': HTMLAcmeTableElement;
